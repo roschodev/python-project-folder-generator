@@ -1,4 +1,4 @@
-#deze structuur is gebaseerd op indents. Hoeveel tabs je doet voor een foldernaam betekent wel heel hij zal worden gegenereerd.
+#deze structuur is gebaseerd op indents. Hoeveel tabs je doet voor een foldernaam betekent waar hij zal worden gegenereerd.
 
 01 Basisinformatie
     01 Selectiestukken
