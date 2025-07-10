@@ -1,0 +1,58 @@
+#deze structuur is gebaseerd op indents. Hoeveel tabs je doet voor een foldernaam betekent waar hij zal worden gegenereerd.
+
+01 Basisinformatie
+    01 Selectiestukken
+    02 PVE
+    03 Planning Opdrachtgever
+    04 Bestemmingsplan
+    05 Kadastrale Gegevens
+    06 Tekeningen Bestaande Toestand
+    07 Inmetingen
+    08 Foto's en Publicaties
+    09 Bestek
+    10 KLIC Melding
+    11 Rapportages
+02 Werkbestanden
+    00 Dumpmap - Sorteren
+    01 Omgeving
+        01 BGT
+        02 Kadaster
+        03 Stijlen
+        04 Export_DXF
+        05 Export_SHP
+        06 Export_DAE
+        07_Scripts
+        08_Image_Exports
+        09_3DBAG
+        10_Maquette
+        11_AHN
+    02 ReferentieProjecten
+    03 Schetsen
+    04 Presentaties
+    05 ArchiCAD
+    06 DocumentenLijst
+    07 Kleur- en Materiaalschema
+    08 Visualisaties
+        01 Media
+            01 Afbeeldingen
+            02 Videos
+            03 Panoramas
+            04 Overig
+        02 Referenties
+        03 Materialen
+        04 3D-Scenes
+    09 Berekeningen
+        01 Berekeningen Bouwbesluit
+        02 Koppen- en Lagenmaat
+        03 Parkeernormen
+    10 Diversen
+        01 GPR
+        02 Interieur
+        03 Kostenraming
+        04 Veiligheidsdossier
+    11 IFC_Solibri
+    12 BIMx
+03 Correspondentie
+    01 Inkomende Stukken
+    02 Uitgaannde Stukken
+    03 Interne Stukken
