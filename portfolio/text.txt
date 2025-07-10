@@ -1,0 +1,7 @@
+{
+ 	"title": "Project Folder Generator"
+	"technologies": "Python, Tkinter"
+	"description": "This is a simple project allowing the user to easily create a templated folder structure for projects on a specified path. It uses 	Python and Tkinter to create a GUI and have the user enter the required information."
+	"date": "July 2024"
+
+}
