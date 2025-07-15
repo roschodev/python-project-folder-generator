@@ -21,12 +21,16 @@ class ProjectFolderGenerator():
     def __init__(self, parent_frame):
         self.tool_frame = parent_frame
         self.ROOT_FOLDER = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+        self.mode_var = tk.StringVar(value="folder")     
         self.setup_gui()
         self.type = Type.TEXT_FILE
         if self.type == Type.TEXT_FILE:
             self.template_path =os.path.abspath(os.path.join(self.ROOT_FOLDER, "ProjectFolderGenerator/folder_structure.txt"))
             print(self.template_path)
-            self.lines = self.read_folder_structure(self.template_path)  
+            self.lines = self.read_folder_structure(self.template_path)
+       
+     
+        self.tool_description = ""      
         
     def destroy(self):
         for child in self.tool_frame.winfo_children():
@@ -67,35 +71,40 @@ class ProjectFolderGenerator():
         self.code_label = tk.Label(self.tool_frame, text="Project Code: ")
         self.code_label.grid(row=0, column=0, padx=5, pady=3, sticky="w")
         self.code_entry = tk.Entry(self.tool_frame)
-        self.code_entry.grid(row=0, column=1, columnspan=3, sticky='ew')
+        self.code_entry.grid(row=0, column=1, columnspan=8, sticky='ew')
             
         self.location_label = tk.Label(self.tool_frame, text="Location: ")
         self.location_label.grid(row=1, column=0, padx=5, pady=3,  sticky="w")
         self.location_entry = tk.Entry(self.tool_frame)
-        self.location_entry.grid(row=1, column=1,columnspan=3, sticky='ew')
+        self.location_entry.grid(row=1, column=1,columnspan=8, sticky='ew')
             
         self.name_label = tk.Label(self.tool_frame, text="Naam: ")
         self.name_label.grid(row=2, column=0, padx=5, pady=3, sticky="w")
         self.name_entry = tk.Entry(self.tool_frame)
-        self.name_entry.grid(row=2, column=1,columnspan=3, sticky='ew', ipadx=100)
+        self.name_entry.grid(row=2, column=1,columnspan=8, sticky='ew', ipadx=100)
             
         self.client_label = tk.Label(self.tool_frame, text="Client: ")
         self.client_label.grid(row=3, column=0, padx=5, pady=3,  sticky="w")
         self.client_entry = tk.Entry(self.tool_frame)
-        self.client_entry.grid(row=3, column=1, columnspan=3,  sticky="ew")
+        self.client_entry.grid(row=3, column=1, columnspan=8,  sticky="ew")
                 
-        self.path_label = tk.Label(self.tool_frame, text="Path: ")
+        self.path_label = tk.Label(self.tool_frame, text="Destination Path: ")
         self.path_label.grid(row=4, column=0, padx=5, pady=3,  sticky="w")
         self.path_entry = tk.Entry(self.tool_frame)
-        self.path_entry.grid(row=4, column=1, columnspan=9, sticky='ew')
-            
+        self.path_entry.grid(row=4, column=1, columnspan=6, sticky='ew')
         
-        #Opens file dialog for selecting a folder
-        self.browse_button = ttk.Button(self.tool_frame,style="TButton", text="Browse", command=self.create_file_dialog)
-        self.browse_button.grid(row=4, column=11, padx=10, pady=5)
-            
-        self.submit_button = ttk.Button(self.tool_frame,style="TButton", text="Submit", command=self.submit_form)
-        self.submit_button.grid(row=5, column=0, pady=5)
+        
+        self.path_browse_button = ttk.Button(
+            self.tool_frame, style="TButton", text="Browse", command=lambda: self.create_file_dialog()
+        )
+        self.path_browse_button.grid(row=4, column=7, padx=1, pady=5)
+        
+        
+        self.submit_button = ttk.Button(
+            self.tool_frame, style="TButton", text="Create Folder", command=self.submit_form
+        )
+        self.submit_button.grid(row=5, column=0, padx=1, pady=5)
+ 
         
     def submit_form(self):
         try:
