@@ -64,8 +64,6 @@ class BaseUI:
         self.right_frame.grid_rowconfigure(1, weight=4)
         self.right_frame.grid_columnconfigure(0, weight=1) 
         
-       
-        
         
         #dividing right frame into 1:4
         #create tool info frame size 1
