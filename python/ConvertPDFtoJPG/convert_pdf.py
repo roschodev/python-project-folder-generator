@@ -34,42 +34,44 @@ class ConvertPDFtoJPG():
             print(f"Could not open folder: {e}")  
                   
     def destroy(self):
-        for child in self.tool_frame.winfo_children():
-            child.destroy()
+        self.container.destroy()
         for child in self.progress_frame.winfo_children():
-            child.destroy()        
-    
+            child.destroy()     
+        
     def setup_gui(self):
-        self.source_label = tk.Label(self.tool_frame, text="Source path: ")
+        self.container = tk.Frame(self.tool_frame)
+        self.container.grid(row=0, column=0, sticky="nsew")
+        
+        self.source_label = tk.Label(self.container, text="Source path: ")
         self.source_label.grid(row=0, column=0, padx=5, pady=3, sticky="w")
-        self.source_entry = tk.Entry(self.tool_frame, width=75)
+        self.source_entry = tk.Entry(self.container, width=75)
         self.source_entry.grid(row=0, column=1, columnspan=3, sticky='ew')
         
         self.source_browse_button = ttk.Button(
-            self.tool_frame, style="TButton", text="Browse", command=lambda: 
+            self.container, style="TButton", text="Browse", command=lambda: 
                 self.create_file_dialog(self.source_entry)
                 
         )
         self.source_browse_button.grid(row=0, column=4, padx=10, pady=5)
             
-        self.output_label = tk.Label(self.tool_frame, text="Output path: ")
+        self.output_label = tk.Label(self.container, text="Output path: ")
         self.output_label.grid(row=1, column=0, padx=5, pady=3,  sticky="w")
-        self.output_entry = tk.Entry(self.tool_frame,width=75)
+        self.output_entry = tk.Entry(self.container,width=75)
         self.output_entry.grid(row=1, column=1,columnspan=3, sticky='ew')
         
         self.template_browse_button = ttk.Button(
-            self.tool_frame, style="TButton", text="Browse", command=lambda: self.create_file_dialog(self.output_entry)
+            self.container, style="TButton", text="Browse", command=lambda: self.create_file_dialog(self.output_entry)
         )
         self.template_browse_button.grid(row=1, column=4, padx=10, pady=5)
         
         self.convert_button = ttk.Button(
-            self.tool_frame, style="TButton", text="Convert", command=self.convert
+            self.container, style="TButton", text="Convert", command=self.convert
             )
         
         self.convert_button.grid(row=3, column=0, padx=1, pady=5)
         
         self.open_folder_button = ttk.Button(
-            self.tool_frame,
+            self.container,
             style="TButton",
             text="Open Destination Folder",
             command=lambda: self.open_folder(self.output_entry.get())

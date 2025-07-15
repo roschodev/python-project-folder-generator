@@ -8,7 +8,7 @@ class BaseUI:
     def __init__(self, size=(700,700)):
         
         self.tools = {
-            "Zip DWG folders": "Looks for folder names with DWG in it, then zips those.",
+            # "Zip DWG folders": "Looks for folder names with DWG in it, then zips those.",
             "Convert PDF to JPG": "Checks a folder for PDF file, if it finds any it converts them to JPG files. Converts every page to a separate JPG.",
             "Folder Generator": "Generates a pre-defined folder structure at a specified location using project data. Specifically designed for creating project folder structures using the AGNOVA naming system."
         }
@@ -31,15 +31,12 @@ class BaseUI:
             self.active_widget = None
         
         self.tool_label.config(text=selected_tool)
-        if selected_tool == "Zip DWG folders":
-            self.active_widget = DWGZipper(self.tool_frame)
+        if selected_tool == "Folder Generator":
+            self.active_widget = ProjectFolderGenerator(self.tool_frame)
             pass
         elif selected_tool == "Convert PDF to JPG":
             self.active_widget = ConvertPDFtoJPG(self.tool_frame, self.progress_frame)
             pass
-        elif selected_tool == "Folder Generator":
-            self.active_widget = ProjectFolderGenerator(self.tool_frame)
-        
         else:
             print("Unknown tool")
         
